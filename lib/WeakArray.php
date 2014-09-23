@@ -16,7 +16,10 @@ class WeakArray implements ArrayAccess {
 	protected $_ = [];
 
 	function offsetExists($k) {
-		return isset($this->_[$k]) && $this->_[$k]->valid();
+		if (!isset($this->_[$k])) return false;
+		if ($this->_[$k]->valid()) return true;
+		unset($this->_[$k]);
+		return false;
 	}
 
 	function offsetGet($k) {
