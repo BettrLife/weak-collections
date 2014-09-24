@@ -2,8 +2,8 @@
 	"name": "bettrlife/weak-collections",
 	"description": "Collections of transparent weak references (for caching, etc.).",
 	"license": "BSD-3-Clause",
-	"require": {
-		"ext-weakref": "*"
+	"suggest": {
+		"ext-weakref": "Actually provides weak references.  Very strongly recommended."
 	},
 	"require-dev": {
 		"phpunit/phpunit": "*"

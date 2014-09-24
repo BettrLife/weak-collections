@@ -20,6 +20,9 @@ class WeakArrayTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testDiesWithOriginalObject() {
+		if (!extension_loaded('weakref')) {
+			$this->markTestSkipped("WeakRef extension not available");
+		}
 		$o = new StdClass();
 		$a = new WeakArray();
 		$a['o'] = $o;
