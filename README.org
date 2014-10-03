@@ -1,0 +1,22 @@
+* Weak Collections for PHP
+
+** class WeakArray
+
+Implements an array of where the values are always a weak reference in the
+array.  In other words, this is an array you can stick things in without forcing
+those objects to stay alive.  If the object becomes invalid, so too does the
+key.
+
+Useful for things like keeping a cache of database objects, so if two things ask
+for the same ID, you can give them the same underlying object without causing
+the object to stay in memory unnecessarily.
+
+Contrast this with WeakMap, which attaches arbitrary data to a weakly-referenced
+key.
+
+** Bonus
+
+The optional-weakref branch provides compatibility shims for WeakRef and
+WeakMap, so you can develop against the weakref PECL extension without
+installing it everywhere (with the hopefully-obvious caveat that without the
+weakref extension, all references are strong).
