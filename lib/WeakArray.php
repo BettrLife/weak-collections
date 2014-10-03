@@ -34,6 +34,3 @@ class WeakArray implements ArrayAccess {
 		unset($this->_[$k]);
 	}
 }
-
-// Compatibility Shims
-if (!class_exists('WeakRef')) require_once __DIR__.'/WeakRef.php';
