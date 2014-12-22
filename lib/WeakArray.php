@@ -27,7 +27,12 @@ class WeakArray implements ArrayAccess {
 	}
 
 	function offsetSet($k, $v) {
-		$this->_[$k] = new WeakRef($v);
+		if (isset($k)) {
+			$this->_[$k] = new WeakRef($v);
+		}
+		else {
+			$this->_[] = new WeakRef($v);
+		}
 	}
 
 	function offsetUnset($k) {
